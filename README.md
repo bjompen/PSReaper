@@ -2,8 +2,6 @@
 
 Control reaper using PowerShell.
 
-I have literally no idea why anyone would want this, But I'm bored and have nothing to do.
-
 ## Get started
 
 This module uses the web remote control of reaper.
@@ -15,23 +13,31 @@ Control/OSC/Web
 Add web browser interface and remember the address
 ```
 
-You can, of course, make connecting easier by using DNS names or something... I don't really care right now.
+You can, of course, make connecting easier by using DNS names or something, but I haven't bothered with this (and it doesn't really matter)
 
-When done this should also work over network/internet (assuming you have your firewalls and forwarders set up.)
+This should also work over network/internet (assuming you have your firewalls and forwarders set up.)
+
+This module will automatically try to connect using 'http://127.0.0.1:8080' as URI.
+If you want to use something else, just run
+
+```PowerShell
+Connect-PSReaper -ReaperHost 'http://yourhost'
+```
 
 ----
 
 ### Implemented so far
 
-* Some basic get commands to reap project and track data.
+* Some basic get commands to read project and track data.
 * one set command to change some track settings.
+* Project settings, record, playback, loop, and more.
 
-### Coming soon(ish)
+***I haven't yet implemented help. I might do that later***
 
-* Project settings, record, playback, loop you name it..
+### Requests? Missing something?
+
+Leave a report or request in Issues
 
 ----
 
-## Disclaimer
-
-This is slow right now. Making it fast is for later.
+If you're curious about using Reaper DAW, you can go to [www.reaper.fm](https://www.reaper.fm/) and get a free trial full version!

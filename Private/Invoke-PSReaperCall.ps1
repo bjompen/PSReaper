@@ -6,7 +6,12 @@ function Invoke-PSReaperCall {
     )
     
     if (-not $Script:ReaperConn) {
-        throw 'No Reaper connection found. please run Connect-PSReaper to create connection properties'
+        try {
+            Connect-PSReaper
+        }
+        catch {
+            throw 'No Reaper connection found. please run Connect-PSReaper to create connection properties'
+        }
     }
 
     $uri = "$($Script:ReaperConn.uri.AbsoluteUri)_/$Fragment"
