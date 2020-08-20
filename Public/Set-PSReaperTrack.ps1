@@ -32,7 +32,10 @@ function Set-PSReaperTrack {
         [Parameter()]
         [ValidateNotNullOrEmpty()]
         [ValidateSet('cycle', 'on', 'auto')]
-        [string]$Recmon
+        [string]$Recmon,
+
+        [Parameter()]
+        [string]$TrackName
         
     )
 
@@ -53,6 +56,7 @@ function Set-PSReaperTrack {
             'on'    { "$Fragment$BaseFragment/RECMON/1;" }
             'auto'  { "$Fragment$BaseFragment/RECMON/2;" }
         }}
+        'TrackName' { $Fragment = "$Fragment$BaseFragment/P_NAME/$TrackName;SET/UNDO/Rename%20Track" }
    }
     
     try { 
