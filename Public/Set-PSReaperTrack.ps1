@@ -6,15 +6,15 @@ function Set-PSReaperTrack {
         [Int]$tracknumber,
 
         # sets volume for a track. If value starts with + or -, then adjustment is relative (in dB), otherwise adjustment is absolute (1=0dB, etc). If value ends in "g", then ganging is ignored.
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter()]
         [string]$Volume,
 
         # sets pan for a track. If value starts with + or -, adjustment is relative. If value ends in "g", then ganging is ignored.
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter()]
         [string]$pan,
 
         # sets width for a track. If value starts with + or -, adjustment is relative. If value ends in "g", then ganging is ignored.
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter()]
         [string]$width,
 
         [Parameter()]
@@ -56,7 +56,7 @@ function Set-PSReaperTrack {
             'on'    { "$Fragment$BaseFragment/RECMON/1;" }
             'auto'  { "$Fragment$BaseFragment/RECMON/2;" }
         }}
-        'TrackName' { $Fragment = "$Fragment$BaseFragment/P_NAME/$TrackName;SET/UNDO/Rename%20Track" }
+        'TrackName' { $Fragment = "$Fragment$BaseFragment/P_NAME/$TrackName;SET/UNDO/Rename_Track;" }
    }
     
     try { 
